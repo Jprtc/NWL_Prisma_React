@@ -2,7 +2,6 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import { api } from "../services/api";
 
 
-
 type User ={
     id: string;
     name: string;
@@ -43,7 +42,10 @@ export function AuthProvider(props: AuthProvider){
             code: githubCode,
         })
         const {token,user} = response.data
+
         localStorage.setItem('@dowhile:token', token)
+
+        api.defaults.headers.common.authorization = `Bearer ${token}`;
 
         // console.log(user)
         setUser(user)

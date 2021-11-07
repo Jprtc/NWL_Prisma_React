@@ -14,8 +14,7 @@ export function SendMessageForm(){
         if(!message.trim()){
             return;
         }
-        console.log('CLIQUEI')
-
+        // console.log('CLIQUEI')
         await api.post('messages',{message})
         setMessage('')
     }
@@ -41,7 +40,7 @@ export function SendMessageForm(){
                 <textarea
                     name="message"
                     id="message"
-                    placeholder="Qual sua expectativa para o evento?"
+                    placeholder="Deixe uma mensagem aqui!"
                     onChange={event => setMessage(event.target.value)}
                     value={message}
                 />
